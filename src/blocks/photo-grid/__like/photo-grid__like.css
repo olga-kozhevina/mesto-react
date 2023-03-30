@@ -1,0 +1,7 @@
+.photo-grid__like {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  align-items: center;
+  padding-top: 4px;
+}

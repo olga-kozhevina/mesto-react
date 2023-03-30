@@ -1,0 +1,6 @@
+.profile__avatar-container {
+  background: rgba(0, 0, 0, .8) url("../../../images/edit-avatar-button.svg") no-repeat center;
+  display: block;
+  height: 120px;
+  width: 120px;
+}

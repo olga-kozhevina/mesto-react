@@ -1,0 +1,16 @@
+#error-message {
+  font-size: 14px;
+    line-height: 22px;
+    min-width: 200px;
+    text-align: center;
+    position: relative;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 600px) {
+  #error-message {
+    top: 40%;
+  }
+}
