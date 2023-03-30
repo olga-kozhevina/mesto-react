@@ -11,7 +11,7 @@ function Main(props) {
 
     //  переменные состояния данных пользователя
     const [userName, setUserName] = React.useState('');
-    const [userOccupation, setUserOccupation] = React.useState('');
+    const [userDescription, setUserDescription] = React.useState('');
     const [userAvatar, setUserAvatar] = React.useState('');
 
     // переменная состояния ошибки
@@ -22,7 +22,7 @@ function Main(props) {
         Promise.all([api.getUserInfo(), api.getInitialCards()])
             .then(([user, cards]) => {
                 setUserName(user.name);
-                setUserOccupation(user.about);
+                setUserDescription(user.about);
                 setUserAvatar(user.avatar);
                 setCards(cards);
             })
@@ -40,7 +40,7 @@ function Main(props) {
                 </div>
                 <div className="profile__info">
                     <h1 className="profile__name" name="profile-name">{userName}</h1>
-                    <p className="profile__about" name="profile-about">{userOccupation}</p>
+                    <p className="profile__about" name="profile-about">{userDescription}</p>
                     <button className="profile__edit-button" type="button" onClick={onEditProfile}></button>
                 </div>
                 <button className="profile__add-button" type="button" onClick={onAddPlace}></button>
