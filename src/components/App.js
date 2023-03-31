@@ -60,9 +60,25 @@ function App() {
         buttonText="Сохранить"
         children={
           <div className="popup__form">
-            <input type="text" className="popup__input popup__input_type_name" id="profile-name" name="name" required minLength="2" maxLength="40" placeholder="Имя" />
+            <input 
+            type="text" 
+            className="popup__input popup__input_type_name" 
+            id="profile-name" 
+            name="name" 
+            required 
+            minLength="2" 
+            maxLength="40" 
+            placeholder="Имя" />
             <span className="popup__error profile-name-error"></span>
-            <input type="text" className="popup__input popup__input_type_about" id="profile-about" name="about" required minLength="2" maxLength="200" placeholder="О себе" />
+            <input 
+            type="text" 
+            className="popup__input popup__input_type_about" 
+            id="profile-about" 
+            name="about" 
+            required 
+            minLength="2" 
+            maxLength="200" 
+            placeholder="О себе" />
             <span className="popup__error profile-about-error"></span>
           </div>
         }
@@ -76,9 +92,23 @@ function App() {
         buttonText="Создать"
         children={
           <div className="popup__form">
-            <input type="text" className="popup__input popup__input_type_card-name" id="card-name" name="name" required minLength="2" maxLength="30" placeholder="Название" />
+            <input 
+            type="text" 
+            className="popup__input popup__input_type_card-name" 
+            id="card-name" 
+            name="name" 
+            required 
+            minLength="2" 
+            maxLength="30" 
+            placeholder="Название" />
             <span className="popup__error card-name-error"></span>
-            <input type="url" className="popup__input popup__input_type_image-src" id="url" name="link" required placeholder="Ссылка на картинку" />
+            <input 
+            type="url" 
+            className="popup__input popup__input_type_image-src" 
+            id="url" 
+            name="link" 
+            required 
+            placeholder="Ссылка на картинку" />
             <span className="popup__error url-error"></span>
           </div>
         }
@@ -98,7 +128,13 @@ function App() {
       buttonText="Сохранить"
       children={
         <div className="popup__form">
-        <input type="url" className="popup__input popup__input_type_avatar" id="urlav" name="url" placeholder="Ссылка на картинку" required />
+        <input 
+        type="url" 
+        className="popup__input popup__input_type_avatar" 
+        id="urlav" 
+        name="url" 
+        placeholder="Ссылка на картинку" 
+        required />
         <span className="popup__error urlav-error"></span>
         </div>
       }

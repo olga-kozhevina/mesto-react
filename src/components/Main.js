@@ -35,15 +35,20 @@ function Main(props) {
     return (
         <main className="content">
             <section className="profile">
-                <div className="profile__avatar-container" onClick={onEditAvatar}>
-                    <img src={userAvatar} alt="Аватар профиля" className="profile__avatar" />
+                <div 
+                className="profile__avatar-container" 
+                onClick={onEditAvatar}>
+                    <img 
+                    src={userAvatar} 
+                    alt="Аватар профиля" 
+                    className="profile__avatar" />
                 </div>
                 <div className="profile__info">
                     <h1 className="profile__name" name="profile-name">{userName}</h1>
                     <p className="profile__about" name="profile-about">{userDescription}</p>
-                    <button className="profile__edit-button" type="button" onClick={onEditProfile}></button>
+                    <button className="profile__edit-button" type="button" onClick={onEditProfile} />
                 </div>
-                <button className="profile__add-button" type="button" onClick={onAddPlace}></button>
+                <button className="profile__add-button" type="button" onClick={onAddPlace} />
             </section>
 
             <section aria-label="Фотосетка">
