@@ -1,4 +1,4 @@
-import React, { useContext }  from 'react';
+import React, { useContext } from 'react';
 import Card from './Card';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
@@ -12,13 +12,13 @@ function Main(props) {
     return (
         <main className="content">
             <section className="profile">
-                <div 
-                className="profile__avatar-container" 
-                onClick={onEditAvatar}>
-                    <img 
-                    src={currentUser.avatar} 
-                    alt="Аватар профиля" 
-                    className="profile__avatar" />
+                <div
+                    className="profile__avatar-container"
+                    onClick={onEditAvatar}>
+                    <img
+                        src={currentUser.avatar}
+                        alt="Аватар профиля"
+                        className="profile__avatar" />
                 </div>
                 <div className="profile__info">
                     <h1 className="profile__name" name="profile-name">{currentUser.name}</h1>
@@ -31,12 +31,12 @@ function Main(props) {
             <section aria-label="Фотосетка">
                 <ul className="photo-grid">
                     {cards.map(card => (
-                        <Card 
-                        key={card._id} 
-                        card={card} 
-                        onCardClick={onCardClick} 
-                        onCardLike ={onCardLike} 
-                        onCardDelete={onCardDelete} />
+                        <Card
+                            key={card._id}
+                            card={card}
+                            onCardClick={onCardClick}
+                            onCardLike={onCardLike}
+                            onCardDelete={onCardDelete} />
                     ))}
                 </ul>
             </section>

@@ -8,7 +8,8 @@ import ImagePopup from './ImagePopup';
 import EditProfilePopup from './EditProfilePopup';
 import EditAvatarPopup from './EditAvatarPopup';
 import AddPlacePopup from './AddPlacePopup';
-import { CurrentUserContext, initialUser } from '../contexts/CurrentUserContext';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import { initialUser } from '../utils/constants';
 import api from '../utils/Api';
 
 function App() {
@@ -124,12 +125,12 @@ function App() {
     api.addCard(card)
       .then((newCard) => {
         setCards([newCard, ...cards]);
-        closeAllPopups(); 
+        closeAllPopups();
       })
       .catch((err) => {
         console.log(`Ошибка добавления карточки: ${err}`)
       })
-    };
+  };
 
   return (
 
@@ -146,13 +147,13 @@ function App() {
           cards={cards}
         />
 
-        <EditProfilePopup 
+        <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
           onUpdateUser={handleUpdateUser}
         />
 
-        <AddPlacePopup 
+        <AddPlacePopup
           isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
           onAddPlace={handleAddPlaceSubmit}
@@ -164,7 +165,7 @@ function App() {
           buttonText="Да"
         />
 
-        <EditAvatarPopup 
+        <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
           onUpdateAvatar={handleUpdateAvatar}
