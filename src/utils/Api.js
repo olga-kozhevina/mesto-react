@@ -3,16 +3,16 @@ class Api {
       this._baseUrl = baseUrl;
       this._headers = headers;
     }
+
+    _handleResponse(res) {
+      return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
+    }
   
     getUserInfo() {
       return fetch(`${this._baseUrl}/users/me`, {
         headers: this._headers
       })
         .then(this._handleResponse);
-    }
-  
-    _handleResponse(res) {
-      return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
     }
   
     getInitialCards() {
@@ -40,20 +40,20 @@ class Api {
       .then(this._handleResponse);
     }
   
-    putLike(cardId) {
-      return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-        method: 'PUT',
-        headers: this._headers,
-      })
-      .then(this._handleResponse);
-    }
-  
-    deleteLike(cardId) {
-      return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-        method: 'DELETE',
-        headers: this._headers
-      })
-      .then(this._handleResponse);
+    changeLikeCardStatus(cardId, isLiked) {
+      if(isLiked) {
+        return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+          method: 'PUT',
+          headers: this._headers,
+        })
+        .then(this._handleResponse)
+      } else {
+        return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+          method: 'DELETE',
+          headers: this._headers
+        })
+        .then(this._handleResponse);
+      }
     }
   
     deleteCard(id) {
@@ -80,6 +80,6 @@ class Api {
           authorization: '52fc6959-8692-45e7-a047-982dcb1b275b',
           'Content-Type': 'application/json'
         }
-    })
+    });
 
   export default api;

@@ -26,6 +26,7 @@
 @import url(./blocks/photo-grid/__like-button/photo-grid__like-button.css);
 @import url(./blocks/photo-grid/__like-button/_active/photo-grid__like-button_active.css);
 @import url(./blocks/photo-grid/__delete-button/photo-grid__delete-button.css);
+@import url(./blocks/photo-grid/__delete-button/_active/photo-grid__delete-button_active.css);
 @import url(./blocks/photo-grid/__like/photo-grid__like.css);
 @import url(./blocks/photo-grid/__like-count/photo-grid__like-count.css);
 

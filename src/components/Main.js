@@ -1,36 +1,13 @@
-import React from 'react';
+import React, { useContext }  from 'react';
 import Card from './Card';
-import Error from './Error';
-import api from '../utils/Api';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
+
 
 function Main(props) {
-    const { onEditProfile, onAddPlace, onEditAvatar, onCardClick } = props;
+    const { onEditProfile, onAddPlace, onEditAvatar, onCardClick, onCardLike, onCardDelete, cards } = props;
 
-    // переменные состояния карточек
-    const [cards, setCards] = React.useState([]);
-
-    //  переменные состояния данных пользователя
-    const [userName, setUserName] = React.useState('');
-    const [userDescription, setUserDescription] = React.useState('');
-    const [userAvatar, setUserAvatar] = React.useState('');
-
-    // переменная состояния ошибки
-    const [errorMessage, setErrorMessage] = React.useState('');
-
-    // получаем данные пользователя и карточки с сервера
-    React.useEffect(() => {
-        Promise.all([api.getUserInfo(), api.getInitialCards()])
-            .then(([user, cards]) => {
-                setUserName(user.name);
-                setUserDescription(user.about);
-                setUserAvatar(user.avatar);
-                setCards(cards);
-            })
-            .catch((err) => {
-                console.log(`Ошибка при получении данных: ${err}`);
-                setErrorMessage('Произошла ошибка при получении данных');
-            })
-    }, []);
+    // подписываемся на контекст
+    const currentUser = useContext(CurrentUserContext);
 
     return (
         <main className="content">
@@ -39,13 +16,13 @@ function Main(props) {
                 className="profile__avatar-container" 
                 onClick={onEditAvatar}>
                     <img 
-                    src={userAvatar} 
+                    src={currentUser.avatar} 
                     alt="Аватар профиля" 
                     className="profile__avatar" />
                 </div>
                 <div className="profile__info">
-                    <h1 className="profile__name" name="profile-name">{userName}</h1>
-                    <p className="profile__about" name="profile-about">{userDescription}</p>
+                    <h1 className="profile__name" name="profile-name">{currentUser.name}</h1>
+                    <p className="profile__about" name="profile-about">{currentUser.about}</p>
                     <button className="profile__edit-button" type="button" onClick={onEditProfile} />
                 </div>
                 <button className="profile__add-button" type="button" onClick={onAddPlace} />
@@ -54,11 +31,15 @@ function Main(props) {
             <section aria-label="Фотосетка">
                 <ul className="photo-grid">
                     {cards.map(card => (
-                        <Card key={card._id} card={card} onCardClick={onCardClick} />
+                        <Card 
+                        key={card._id} 
+                        card={card} 
+                        onCardClick={onCardClick} 
+                        onCardLike ={onCardLike} 
+                        onCardDelete={onCardDelete} />
                     ))}
                 </ul>
             </section>
-            {errorMessage && <Error message={errorMessage} />}
         </main>
     )
 }
