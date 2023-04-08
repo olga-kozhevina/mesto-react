@@ -15,7 +15,6 @@ function PopupWithForm(props) {
             className="popup__form" 
             name={name} 
             onSubmit={onSubmit} 
-            onClick={() => console.log("Submit button clicked!")}
             noValidate>
                 {children}
                 <button 
