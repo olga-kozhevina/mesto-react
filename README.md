@@ -37,4 +37,4 @@
 - Разметка портирована в JSX.
 
 
-## [Ссылка на сайт проектной работы &rarr;](https://olpom.github.io/mesto-react/)
+## [Ссылка на сайт проектной работы &rarr;](https://olga-kozhevina.github.io/mesto-react/)
